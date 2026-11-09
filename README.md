@@ -25,6 +25,16 @@ trial, see below). They fail because **they don't go back**.
 
 ---
 
+## At a glance
+
+**Pipeline, workday design and headline results**
+
+![Architecture, the two-turn workday with clear/hold twins, and results by channel](images/charts.png)
+
+**Data model and run system**
+
+![ERP data model (vendors, invoices, payments, notes, GRs, GL) and how runs flow through the grader](images/the-data.png)
+
 ## 1. Why this matters
 
 Most real finance-ops work is follow-up. A request can't be finished at 11:00 because an approval, a
@@ -251,6 +261,7 @@ doublebooked/erp.py          ERP simulator: state + ~30 tools (pure functions, J
 doublebooked/families.py     seeded world generator + 7 exactly-once families (trap/control)
 doublebooked/looseends.py    Loose Ends workdays: blockers, colleague events, channels, scripted refs, validation
 doublebooked/grader.py       end-of-day batch simulation, effect checks, collateral check, taxonomy
+images/                      README diagrams (pipeline, workday, results, data model)
 doublebooked/runner.py       API runner (Anthropic / OpenAI / OpenRouter / scripted), 2-turn workdays
 doublebooked/sandbox.py      shell-harness mode (prepare / afternoon / grade)
 doublebooked/report.py       Loose Ends tables · score.py: DoubleBooked tables (Wilson CIs)

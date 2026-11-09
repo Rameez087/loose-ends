@@ -243,7 +243,7 @@ Seeds `N` give `LOOSE-{clear,hold}[_silent]-sN`, which is 4 workdays (24 graded 
   yet whitelist paying the account on file. The model behaved correctly. This was fixed in Loose Ends (`doc_ids` whitelist).
 
 
-## 7b. Provenance and data
+## 7b. Provenance, data and AI use
 
 - **Built entirely during the hackathon** (8–9 Nov 2026). No pre-existing code, benchmarks or datasets were used. τ-bench
   inspired the idea of grading the final database state, and GDPx motivated the follow-through hypothesis. Neither one's
@@ -256,6 +256,11 @@ Seeds `N` give `LOOSE-{clear,hold}[_silent]-sN`, which is 4 workdays (24 graded 
   client or personal data. The SAP conventions modelled (parked documents, workflow approval, GR/IR payment blocks,
   F110-style payment runs, recurring entries, IC mirroring, ALV export quirks) reflect the author's professional experience
   with SAP S/4HANA finance data.
+- **AI use:** The idea, the domain design and the review are mine: which SAP finance processes to model, the four
+  blocker families, the clear/hold twin design, the silent vs email channels, and which controls the grader enforces. AI
+  coding tools helped write the simulator, grader and runner code, ran the blind pilot sessions, and drafted parts of this
+  README. I reviewed the system design, how the tests are configured (tasks, colleague events, expected effects and
+  grading rules) against how these processes work in SAP S/4HANA, and the results and their analysis.
 - **Keys:** none are included. See `.env.example` for variable names.
 
 ## 8. Repository layout

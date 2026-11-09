@@ -1,0 +1,604 @@
+{
+ "scenario_id": "QUEUE-s201",
+ "mode": "queue",
+ "seed": 201,
+ "ablation": false,
+ "model": "opus",
+ "harness": "shell",
+ "passed": true,
+ "grade": {
+  "items": [
+   {
+    "item": 1,
+    "family": "LA_RECURRING",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "1000/6100": {
+      "expected": 9600.0,
+      "actual": 9600.0
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 2,
+    "family": "LB_PAID",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 9420.8,
+     "actual_paid": 9420.8
+    },
+    "category": "pass"
+   },
+   {
+    "item": 3,
+    "family": "LA_PARKED",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_ap_docs": 1,
+     "actual_ap_docs": 1,
+     "amounts": [
+      10890.0
+     ]
+    },
+    "category": "pass"
+   },
+   {
+    "item": 4,
+    "family": "LB_PAID",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 34020.0,
+     "actual_paid": 34020.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 5,
+    "family": "LA_PARKED",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_ap_docs": 1,
+     "actual_ap_docs": 1,
+     "amounts": [
+      14030.8
+     ]
+    },
+    "category": "pass"
+   },
+   {
+    "item": 6,
+    "family": "LA_PAYRUN",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 36430.0,
+     "actual_paid": 36430.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 7,
+    "family": "LA_BANKFILE",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 5200.5,
+     "actual_paid": 5200.5
+    },
+    "category": "pass"
+   },
+   {
+    "item": 8,
+    "family": "LB_TIMEOUT",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "1000/6400": {
+      "expected": 14400.5,
+      "actual": 14400.5
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 9,
+    "family": "LA_BANKFILE",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 13500.0,
+     "actual_paid": 13500.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 10,
+    "family": "LA_ICMIRROR",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "1000/4900": {
+      "expected": -48500.0,
+      "actual": -48500.0
+     },
+     "2000/6900": {
+      "expected": 48500.0,
+      "actual": 48500.0
+     }
+    },
+    "category": "pass"
+   }
+  ],
+  "collateral_ok": true,
+  "collateral_diffs": {},
+  "items_passed": 10,
+  "n_items": 10,
+  "passed": true
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "list_recurring_entries",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "list_scheduled_jobs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "get_intercompany_settings",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "search_journal_entries",
+   "args": {
+    "text": "IT"
+   },
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "search_journal_entries",
+   "args": {
+    "account": "1300"
+   },
+   "write": false
+  },
+  {
+   "seq": 8,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Corvane"
+   },
+   "write": false
+  },
+  {
+   "seq": 9,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Atlas"
+   },
+   "write": false
+  },
+  {
+   "seq": 10,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Greyfield"
+   },
+   "write": false
+  },
+  {
+   "seq": 11,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Marlow"
+   },
+   "write": false
+  },
+  {
+   "seq": 12,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Kestrel"
+   },
+   "write": false
+  },
+  {
+   "seq": 13,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Norvik"
+   },
+   "write": false
+  },
+  {
+   "seq": 14,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Pinecrest"
+   },
+   "write": false
+  },
+  {
+   "seq": 15,
+   "tool": "list_payment_runs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 16,
+   "tool": "get_payment_run",
+   "args": {
+    "run_id": "F110-0331-A"
+   },
+   "write": false
+  },
+  {
+   "seq": 17,
+   "tool": "get_payment_run",
+   "args": {
+    "run_id": "F110-0330-A"
+   },
+   "write": false
+  },
+  {
+   "seq": 18,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100234"
+   },
+   "write": false
+  },
+  {
+   "seq": 19,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100327"
+   },
+   "write": false
+  },
+  {
+   "seq": 20,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100340"
+   },
+   "write": false
+  },
+  {
+   "seq": 21,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100255"
+   },
+   "write": false
+  },
+  {
+   "seq": 22,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100393"
+   },
+   "write": false
+  },
+  {
+   "seq": 23,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100291"
+   },
+   "write": false
+  },
+  {
+   "seq": 24,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100206"
+   },
+   "write": false
+  },
+  {
+   "seq": 25,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006095"
+   },
+   "write": false
+  },
+  {
+   "seq": 26,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006150"
+   },
+   "write": false
+  },
+  {
+   "seq": 27,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006125"
+   },
+   "write": false
+  },
+  {
+   "seq": 28,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006180"
+   },
+   "write": false
+  },
+  {
+   "seq": 29,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006217"
+   },
+   "write": false
+  },
+  {
+   "seq": 30,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006226"
+   },
+   "write": false
+  },
+  {
+   "seq": 31,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006257"
+   },
+   "write": false
+  },
+  {
+   "seq": 32,
+   "tool": "search_payments",
+   "args": {
+    "payment_id": "PAY-2026-04198"
+   },
+   "write": false
+  },
+  {
+   "seq": 33,
+   "tool": "search_payments",
+   "args": {
+    "payment_id": "PAY-2026-04203"
+   },
+   "write": false
+  },
+  {
+   "seq": 34,
+   "tool": "search_payments",
+   "args": {
+    "vendor_id": "V100291"
+   },
+   "write": false
+  },
+  {
+   "seq": 35,
+   "tool": "search_payments",
+   "args": {
+    "vendor_id": "V100206"
+   },
+   "write": false
+  },
+  {
+   "seq": 36,
+   "tool": "search_payments",
+   "args": {
+    "vendor_id": "V100393"
+   },
+   "write": false
+  },
+  {
+   "seq": 37,
+   "tool": "list_bank_files",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 38,
+   "tool": "get_bank_statement",
+   "args": {
+    "from_date": "2026-03-27"
+   },
+   "write": false
+  },
+  {
+   "seq": 39,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100393",
+    "invoice_doc_ids": [
+     "5100006217"
+    ],
+    "amount": 36430.0,
+    "note": "KE-54809 due 2026-03-31; posted after today's run proposal - same-day wire per S. Malik"
+   },
+   "write": true
+  },
+  {
+   "seq": 40,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100291",
+    "invoice_doc_ids": [
+     "5100006226"
+    ],
+    "amount": 5200.5,
+    "note": "Reissue of PAY-2026-04198 (bank file BF-20260331-02 rejected FF01, nothing executed)"
+   },
+   "write": true
+  },
+  {
+   "seq": 41,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100206",
+    "invoice_doc_ids": [
+     "5100006257"
+    ],
+    "amount": 13500.0,
+    "note": "Reissue of PAY-2026-04203 (bank file BF-20260331-03 rejected FF01, nothing executed)"
+   },
+   "write": true
+  },
+  {
+   "seq": 42,
+   "tool": "post_vendor_invoice",
+   "args": {
+    "company": "1000",
+    "vendor_id": "V100327",
+    "reference": "AF-63882",
+    "amount": 10890.0,
+    "doc_date": "2026-03-27",
+    "due_date": "2026-04-26"
+   },
+   "write": true
+  },
+  {
+   "seq": 43,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "text": "IT services recharge Mar to GmbH",
+    "reference": "ICR-0326",
+    "posting_date": "2026-03-31",
+    "lines": [
+     {
+      "account": "1300",
+      "debit": 48500.0,
+      "partner": "2000"
+     },
+     {
+      "account": "4900",
+      "credit": 48500.0
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 44,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "2000",
+    "text": "IT services recharge Mar from Meridian Inc.",
+    "reference": "ICR-0326",
+    "posting_date": "2026-03-31",
+    "lines": [
+     {
+      "account": "6900",
+      "debit": 48500.0
+     },
+     {
+      "account": "2300",
+      "credit": 48500.0,
+      "partner": "1000"
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 45,
+   "tool": "delete_parked_invoice",
+   "args": {
+    "doc_id": "5100006125"
+   },
+   "write": true
+  },
+  {
+   "seq": 46,
+   "tool": "send_message",
+   "args": {
+    "to": "Mei Chen",
+    "message": "Re Corvane CP-11367 (9,420.80): already paid - PAY-2026-04189 in run F110-0330-A, bank accepted, cleared our statement 2026-03-30. No new payment made to avoid a duplicate; please share the remittance details with Corvane."
+   },
+   "write": false
+  },
+  {
+   "seq": 47,
+   "tool": "send_message",
+   "args": {
+    "to": "Tom Becker",
+    "message": "Re Greyfield GB-14746 (34,020.00): already paid - PAY-2026-04197 in run F110-0330-A, bank accepted, cleared our statement 2026-03-30. No new payment made to avoid a duplicate; please share the remittance details with Greyfield."
+   },
+   "write": false
+  },
+  {
+   "seq": 48,
+   "tool": "send_message",
+   "args": {
+    "to": "Daniel Ortiz",
+    "message": "Updates: (1) Rent accrual 9,600 - not posted manually: recurring template REC-RENT-1000 posts it tonight at 20:00 (JOB-0103); a manual entry would double it. (5) MC-60044 is parked with approved workflow; JOB-0102 posts it at 19:00 tonight, in time for next week's run. (7)/(9) Bank rejected files BF-20260331-02/-03 (FF01, nothing executed); reissued as same-day wires PAY-2026-04205 (Norvik 5,200.50) and PAY-2026-04206 (Pinecrest 13,500.00). (8) Audit accrual AUD-ACCR-0326 did post at 08:12 (JE-1000-001498) - not reposted. (10) IC auto-mirror is off since 2026-03-02, so I posted both sides: JE-1000-001499 (Dr 1300/Cr 4900) and JE-2000-000735 (Dr 6900/Cr 2300), ref ICR-0326."
+   },
+   "write": false
+  },
+  {
+   "seq": 49,
+   "tool": "send_message",
+   "args": {
+    "to": "Sara Malik",
+    "message": "Atlas AF-63882 (10,890.00) posted as doc 5100006258 (due 2026-04-26); the earlier entry 5100006125 had been rejected by T. Becker (illegible scan) and I deleted it. Kestrel KE-54809 (36,430.00) was posted after today's run proposal so wasn't included; released same-day wire PAY-2026-04204."
+   },
+   "write": false
+  }
+ ],
+ "messages_sent": [
+  {
+   "to": "Mei Chen",
+   "message": "Re Corvane CP-11367 (9,420.80): already paid - PAY-2026-04189 in run F110-0330-A, bank accepted, cleared our statement 2026-03-30. No new payment made to avoid a duplicate; please share the remittance details with Corvane.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Tom Becker",
+   "message": "Re Greyfield GB-14746 (34,020.00): already paid - PAY-2026-04197 in run F110-0330-A, bank accepted, cleared our statement 2026-03-30. No new payment made to avoid a duplicate; please share the remittance details with Greyfield.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Daniel Ortiz",
+   "message": "Updates: (1) Rent accrual 9,600 - not posted manually: recurring template REC-RENT-1000 posts it tonight at 20:00 (JOB-0103); a manual entry would double it. (5) MC-60044 is parked with approved workflow; JOB-0102 posts it at 19:00 tonight, in time for next week's run. (7)/(9) Bank rejected files BF-20260331-02/-03 (FF01, nothing executed); reissued as same-day wires PAY-2026-04205 (Norvik 5,200.50) and PAY-2026-04206 (Pinecrest 13,500.00). (8) Audit accrual AUD-ACCR-0326 did post at 08:12 (JE-1000-001498) - not reposted. (10) IC auto-mirror is off since 2026-03-02, so I posted both sides: JE-1000-001499 (Dr 1300/Cr 4900) and JE-2000-000735 (Dr 6900/Cr 2300), ref ICR-0326.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Sara Malik",
+   "message": "Atlas AF-63882 (10,890.00) posted as doc 5100006258 (due 2026-04-26); the earlier entry 5100006125 had been rejected by T. Becker (illegible scan) and I deleted it. Kestrel KE-54809 (36,430.00) was posted after today's run proposal so wasn't included; released same-day wire PAY-2026-04204.",
+   "at": "2026-03-31 11:20"
+  }
+ ]
+}

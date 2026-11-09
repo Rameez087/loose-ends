@@ -1,0 +1,630 @@
+{
+ "close_a1": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6200": 21900.86,
+     "6600": 14566.43,
+     "6900": 35692.49,
+     "6400": 26651.76
+    },
+    "actual": {
+     "6200": 21900.86,
+     "6600": 14566.43,
+     "6900": 35692.49,
+     "6400": 26651.76
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -12774.31
+    },
+    "actual": {
+     "6800": -12774.31
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 9124.65,
+     "6500": 9269.05
+    },
+    "actual": {
+     "6300": 9124.65,
+     "6500": 9269.05
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 33291.77
+    },
+    "actual": {
+     "6700": 33291.77
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": -1646.35
+    },
+    "actual": {
+     "7900": -1646.35
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 716.52,
+     "4800": -3561.68
+    },
+    "actual": {
+     "6950": 716.52,
+     "4800": -3561.68
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 7717.58
+    },
+    "actual": {
+     "6050": 7717.58
+    }
+   }
+  }
+ },
+ "close_b2": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6600": 19027.96,
+     "6200": 3716.8,
+     "6900": 30379.35,
+     "6400": 6998.88
+    },
+    "actual": {
+     "6600": 19027.96,
+     "6200": 3716.8,
+     "6900": 30379.35,
+     "6400": 6998.88
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -9560.22
+    },
+    "actual": {
+     "6800": -9560.22
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 11518.35,
+     "6500": 14648.16
+    },
+    "actual": {
+     "6300": 11518.35,
+     "6500": 14648.16
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 18553.49
+    },
+    "actual": {
+     "6700": 18553.49
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": -2750.6
+    },
+    "actual": {
+     "7900": -2750.6
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 385.12,
+     "4800": -2662.63
+    },
+    "actual": {
+     "6950": 385.12,
+     "4800": -2662.63
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 7909.51
+    },
+    "actual": {
+     "6050": 7909.51
+    }
+   }
+  }
+ },
+ "close_m1": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6200": 21900.86,
+     "6600": 14566.43,
+     "6900": 35692.49,
+     "6400": 26651.76
+    },
+    "actual": {
+     "6200": 21900.86,
+     "6600": 14566.43,
+     "6900": 35692.49,
+     "6400": 26651.76
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -12774.31
+    },
+    "actual": {
+     "6800": -12774.31
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 9124.65,
+     "6500": 9269.05
+    },
+    "actual": {
+     "6300": 9124.65,
+     "6500": 9269.05
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 33291.77
+    },
+    "actual": {
+     "6700": 33291.77
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": -1646.35
+    },
+    "actual": {
+     "7900": -1646.35
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 716.52,
+     "4800": -3561.68
+    },
+    "actual": {
+     "6950": 716.52,
+     "4800": -3561.68
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 7717.58
+    },
+    "actual": {
+     "6050": 7717.58
+    }
+   }
+  }
+ },
+ "close_m2": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6600": 19027.96,
+     "6200": 3716.8,
+     "6900": 30379.35,
+     "6400": 6998.88
+    },
+    "actual": {
+     "6600": 19027.96,
+     "6200": 3716.8,
+     "6900": 30379.35,
+     "6400": 6998.88
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -9560.22
+    },
+    "actual": {
+     "6800": -9560.22
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 11518.35,
+     "6500": 14648.16
+    },
+    "actual": {
+     "6300": 11518.35,
+     "6500": 14648.16
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 18553.49
+    },
+    "actual": {
+     "6700": 18553.49
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": -2750.6
+    },
+    "actual": {
+     "7900": -2750.6
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 385.12,
+     "4800": -2662.63
+    },
+    "actual": {
+     "6950": 385.12,
+     "4800": -2662.63
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 7909.51
+    },
+    "actual": {
+     "6050": 7909.51
+    }
+   }
+  }
+ },
+ "close_nc3": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6200": 27748.81,
+     "6600": 11100.33,
+     "6400": 5710.17,
+     "6900": 25487.42
+    },
+    "actual": {
+     "6200": 27748.81,
+     "6600": 11100.33,
+     "6400": 5710.17,
+     "6900": 25487.42
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -35990.31
+    },
+    "actual": {
+     "6800": -35990.31
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 10761.69,
+     "6500": 10159.52
+    },
+    "actual": {
+     "6300": 10761.69,
+     "6500": 10159.52
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 21473.96
+    },
+    "actual": {
+     "6700": 21473.96
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": 135.14
+    },
+    "actual": {
+     "7900": 135.14
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 412.01,
+     "4800": -2040.68
+    },
+    "actual": {
+     "6950": 412.01,
+     "4800": -2040.68
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 3736.01
+    },
+    "actual": {
+     "6050": 3736.01
+    }
+   }
+  }
+ },
+ "close_nc4": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6600": 19619.62,
+     "6900": 38298.44,
+     "6200": 34268.89
+    },
+    "actual": {
+     "6600": 19619.62,
+     "6900": 38298.44,
+     "6200": 34268.89
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -20230.05
+    },
+    "actual": {
+     "6800": -20230.05
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 14645.22,
+     "6500": 11743.82
+    },
+    "actual": {
+     "6300": 14645.22,
+     "6500": 11743.82
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 32946.18
+    },
+    "actual": {
+     "6700": 32946.18
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": -5660.58
+    },
+    "actual": {
+     "7900": -5660.58
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 913.38,
+     "4800": -1528.6
+    },
+    "actual": {
+     "6950": 913.38,
+     "4800": -1528.6
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 7496.81
+    },
+    "actual": {
+     "6050": 7496.81
+    }
+   }
+  }
+ },
+ "close_h5": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6600": 38449.71,
+     "6900": 26686.9,
+     "6200": 21391.81
+    },
+    "actual": {
+     "6600": 38449.71,
+     "6900": 26686.9,
+     "6200": 21391.81
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -33617.42
+    },
+    "actual": {
+     "6800": -33617.42
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 15538.19,
+     "6500": 13800.4
+    },
+    "actual": {
+     "6300": 15538.19,
+     "6500": 13800.4
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 17914.41
+    },
+    "actual": {
+     "6700": 17914.41
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": -2039.73
+    },
+    "actual": {
+     "7900": -2039.73
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 409.56,
+     "4800": -2173.66
+    },
+    "actual": {
+     "6950": 409.56,
+     "4800": -2173.66
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 9480.36
+    },
+    "actual": {
+     "6050": 9480.36
+    }
+   }
+  }
+ },
+ "close_h6": {
+  "checkpoints_passed": 7,
+  "n": 7,
+  "detail": {
+   "CP1_cutoff_accruals": {
+    "pass": true,
+    "expected": {
+     "6400": 10738.05,
+     "6200": 16402.9,
+     "6600": 17056.25,
+     "6900": 16754.9
+    },
+    "actual": {
+     "6400": 10738.05,
+     "6200": 16402.9,
+     "6600": 17056.25,
+     "6900": 16754.9
+    }
+   },
+   "CP2_feb_accrual_reversal": {
+    "pass": true,
+    "expected": {
+     "6800": -23711.54
+    },
+    "actual": {
+     "6800": -23711.54
+    }
+   },
+   "CP3_prepaids": {
+    "pass": true,
+    "expected": {
+     "6300": 10733.88,
+     "6500": 10862.21
+    },
+    "actual": {
+     "6300": 10733.88,
+     "6500": 10862.21
+    }
+   },
+   "CP4_depreciation": {
+    "pass": true,
+    "expected": {
+     "6700": 23700.11
+    },
+    "actual": {
+     "6700": 23700.11
+    }
+   },
+   "CP5_fx_revaluation": {
+    "pass": true,
+    "expected": {
+     "7900": -1665.14
+    },
+    "actual": {
+     "7900": -1665.14
+    }
+   },
+   "CP6_bank": {
+    "pass": true,
+    "expected": {
+     "6950": 524.44,
+     "4800": -2101.92
+    },
+    "actual": {
+     "6950": 524.44,
+     "4800": -2101.92
+    }
+   },
+   "CP7_bonus": {
+    "pass": true,
+    "expected": {
+     "6050": 6678.2
+    },
+    "actual": {
+     "6050": 6678.2
+    }
+   }
+  }
+ }
+}

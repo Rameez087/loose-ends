@@ -1,0 +1,141 @@
+{
+ "scenario_id": "LA_ICMIRROR-trap-s101",
+ "family": "LA_ICMIRROR",
+ "variant": "trap",
+ "seed": 101,
+ "tier": "look-ahead",
+ "ablation": false,
+ "model": "opus",
+ "harness": "shell",
+ "passed": true,
+ "category": "pass",
+ "grade": {
+  "passed": true,
+  "effect_ok": true,
+  "collateral_ok": true,
+  "detail": {
+   "1000/4900": {
+    "expected": -47000.8,
+    "actual": -47000.8
+   },
+   "2000/6900": {
+    "expected": 47000.8,
+    "actual": 47000.8
+   }
+  },
+  "collateral_diffs": {}
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "get_intercompany_settings",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "search_journal_entries",
+   "args": {
+    "period": "2026-03",
+    "text": "recharge"
+   },
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "account": "1300",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000",
+    "account": "2300",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "list_recurring_entries",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "list_scheduled_jobs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "search_journal_entries",
+   "args": {
+    "period": "2026-03",
+    "company": "1000"
+   },
+   "write": false
+  },
+  {
+   "seq": 8,
+   "tool": "search_journal_entries",
+   "args": {
+    "period": "2026-03",
+    "company": "2000"
+   },
+   "write": false
+  },
+  {
+   "seq": 9,
+   "tool": "search_journal_entries",
+   "args": {
+    "text": "IT"
+   },
+   "write": false
+  },
+  {
+   "seq": 10,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "posting_date": "2026-03-31",
+    "reference": "ICR-0326",
+    "text": "IT services recharge Mar to GmbH",
+    "lines": [
+     {
+      "account": "1300",
+      "debit": 47000.8,
+      "partner": "2000"
+     },
+     {
+      "account": "4900",
+      "credit": 47000.8
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 11,
+   "tool": "send_message",
+   "args": {
+    "to": "Aisha Raza",
+    "message": "March IT services recharge (47,000.80 USD) posted in 1000 today as JE-1000-001245 (Dr 1300 partner 2000 / Cr 4900, ref ICR-0326). I did not post the 2000 side manually: 1000->2000 has auto-mirror on, and the intercompany mirror job JOB-0104 runs tonight at 22:00 and will create the 6900/2300 entry in 2000 dated today, same as Jan and Feb (JE-2000-000869/000870). A manual 2000 posting would have doubled it. Please check the mirror entry tomorrow morning."
+   },
+   "write": false
+  }
+ ],
+ "messages_sent": [
+  {
+   "to": "Aisha Raza",
+   "message": "March IT services recharge (47,000.80 USD) posted in 1000 today as JE-1000-001245 (Dr 1300 partner 2000 / Cr 4900, ref ICR-0326). I did not post the 2000 side manually: 1000->2000 has auto-mirror on, and the intercompany mirror job JOB-0104 runs tonight at 22:00 and will create the 6900/2300 entry in 2000 dated today, same as Jan and Feb (JE-2000-000869/000870). A manual 2000 posting would have doubled it. Please check the mirror entry tomorrow morning.",
+   "at": "2026-03-31 11:20"
+  }
+ ]
+}

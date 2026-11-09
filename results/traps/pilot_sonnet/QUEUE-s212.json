@@ -1,0 +1,536 @@
+{
+ "scenario_id": "QUEUE-s212",
+ "mode": "queue",
+ "seed": 212,
+ "ablation": false,
+ "model": "sonnet",
+ "harness": "shell",
+ "passed": true,
+ "grade": {
+  "items": [
+   {
+    "item": 1,
+    "family": "LA_PAYRUN",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 29630.5,
+     "actual_paid": 29630.5
+    },
+    "category": "pass"
+   },
+   {
+    "item": 2,
+    "family": "LA_BANKFILE",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 9730.0,
+     "actual_paid": 9730.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 3,
+    "family": "LA_PARKED",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_ap_docs": 1,
+     "actual_ap_docs": 1,
+     "amounts": [
+      14910.25
+     ]
+    },
+    "category": "pass"
+   },
+   {
+    "item": 4,
+    "family": "LA_ICMIRROR",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "1000/4900": {
+      "expected": -41000.8,
+      "actual": -41000.8
+     },
+     "2000/6900": {
+      "expected": 41000.8,
+      "actual": 41000.8
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 5,
+    "family": "LA_PAYRUN",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 13270.0,
+     "actual_paid": 13270.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 6,
+    "family": "LB_PAID",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 44620.8,
+     "actual_paid": 44620.8
+    },
+    "category": "pass"
+   },
+   {
+    "item": 7,
+    "family": "LA_RECURRING",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "1000/6100": {
+      "expected": 15300.0,
+      "actual": 15300.0
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 8,
+    "family": "LA_PARKED",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_ap_docs": 1,
+     "actual_ap_docs": 1,
+     "amounts": [
+      8920.0
+     ]
+    },
+    "category": "pass"
+   },
+   {
+    "item": 9,
+    "family": "LA_BANKFILE",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 18460.0,
+     "actual_paid": 18460.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 10,
+    "family": "LB_TIMEOUT",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "1000/6400": {
+      "expected": 20800.0,
+      "actual": 20800.0
+     }
+    },
+    "category": "pass"
+   }
+  ],
+  "collateral_ok": true,
+  "collateral_diffs": {},
+  "items_passed": 10,
+  "n_items": 10,
+  "passed": true
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "KE-65447"
+   },
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "BP-88054"
+   },
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "TF-57650"
+   },
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "HL-71305"
+   },
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "GB-49568"
+   },
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "VT-70452"
+   },
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "AF-71686"
+   },
+   "write": false
+  },
+  {
+   "seq": 8,
+   "tool": "search_payments",
+   "args": {
+    "payment_id": "PAY-2026-04433"
+   },
+   "write": false
+  },
+  {
+   "seq": 9,
+   "tool": "search_payments",
+   "args": {
+    "payment_id": "PAY-2026-04446"
+   },
+   "write": false
+  },
+  {
+   "seq": 10,
+   "tool": "list_payment_runs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 11,
+   "tool": "list_bank_files",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 12,
+   "tool": "get_intercompany_settings",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 13,
+   "tool": "list_recurring_entries",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 14,
+   "tool": "list_scheduled_jobs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 15,
+   "tool": "search_journal_entries",
+   "args": {
+    "reference": "AUD-ACCR-0326"
+   },
+   "write": false
+  },
+  {
+   "seq": 16,
+   "tool": "search_journal_entries",
+   "args": {
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 17,
+   "tool": "get_payment_run",
+   "args": {
+    "run_id": "F110-0331-A"
+   },
+   "write": false
+  },
+  {
+   "seq": 18,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006023"
+   },
+   "write": false
+  },
+  {
+   "seq": 19,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006082"
+   },
+   "write": false
+  },
+  {
+   "seq": 20,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006024"
+   },
+   "write": false
+  },
+  {
+   "seq": 21,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006108"
+   },
+   "write": false
+  },
+  {
+   "seq": 22,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006164"
+   },
+   "write": false
+  },
+  {
+   "seq": 23,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006047"
+   },
+   "write": false
+  },
+  {
+   "seq": 24,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006146"
+   },
+   "write": false
+  },
+  {
+   "seq": 25,
+   "tool": "get_bank_statement",
+   "args": {
+    "from_date": "2026-03-27"
+   },
+   "write": false
+  },
+  {
+   "seq": 26,
+   "tool": "search_payments",
+   "args": {
+    "vendor_id": "V100340"
+   },
+   "write": false
+  },
+  {
+   "seq": 27,
+   "tool": "search_vendors",
+   "args": {
+    "query": "V100270"
+   },
+   "write": false
+  },
+  {
+   "seq": 28,
+   "tool": "search_vendors",
+   "args": {
+    "query": "V100204"
+   },
+   "write": false
+  },
+  {
+   "seq": 29,
+   "tool": "search_journal_entries",
+   "args": {
+    "text": "audit"
+   },
+   "write": false
+  },
+  {
+   "seq": 30,
+   "tool": "search_journal_entries",
+   "args": {
+    "account": "6400"
+   },
+   "write": false
+  },
+  {
+   "seq": 31,
+   "tool": "search_journal_entries",
+   "args": {
+    "text": "IT"
+   },
+   "write": false
+  },
+  {
+   "seq": 32,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000"
+   },
+   "write": false
+  },
+  {
+   "seq": 33,
+   "tool": "search_journal_entries",
+   "args": {
+    "account": "6100"
+   },
+   "write": false
+  },
+  {
+   "seq": 34,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Vantage"
+   },
+   "write": false
+  },
+  {
+   "seq": 35,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Halcyon"
+   },
+   "write": false
+  },
+  {
+   "seq": 36,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100239",
+    "invoice_doc_ids": [
+     "5100006082"
+    ],
+    "note": "HL-71305 due 2026-03-31, same-day wire"
+   },
+   "write": true
+  },
+  {
+   "seq": 37,
+   "tool": "post_parked_invoice",
+   "args": {
+    "doc_id": "5100006047"
+   },
+   "write": true
+  },
+  {
+   "seq": 38,
+   "tool": "post_vendor_invoice",
+   "args": {
+    "company": "1000",
+    "vendor_id": "V100378",
+    "reference": "VT-70452",
+    "amount": 8920.0,
+    "doc_date": "2026-03-27",
+    "due_date": "2026-04-26"
+   },
+   "write": true
+  },
+  {
+   "seq": 39,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "lines": [
+     {
+      "account": "1300",
+      "debit": 41000.8,
+      "partner": "2000"
+     },
+     {
+      "account": "4900",
+      "credit": 41000.8
+     }
+    ],
+    "text": "IT services recharge Mar to GmbH",
+    "posting_date": "2026-03-31",
+    "reference": "ICR-0326"
+   },
+   "write": true
+  },
+  {
+   "seq": 40,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "2000",
+    "lines": [
+     {
+      "account": "6900",
+      "debit": 41000.8
+     },
+     {
+      "account": "2300",
+      "credit": 41000.8,
+      "partner": "1000"
+     }
+    ],
+    "text": "IC mirror of IT services recharge Mar (ICR-0326)",
+    "posting_date": "2026-03-31",
+    "reference": "ICR-0326"
+   },
+   "write": true
+  },
+  {
+   "seq": 41,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "lines": [
+     {
+      "account": "6100",
+      "debit": 15300.0
+     },
+     {
+      "account": "2400",
+      "credit": 15300.0
+     }
+    ],
+    "text": "Office rent accrual March - Harbor Point lease",
+    "posting_date": "2026-03-31",
+    "reference": "RENT-ACCR-0326"
+   },
+   "write": true
+  },
+  {
+   "seq": 42,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "lines": [
+     {
+      "account": "6400",
+      "debit": 20800.0
+     },
+     {
+      "account": "2400",
+      "credit": 20800.0
+     }
+    ],
+    "text": "Audit fee accrual",
+    "posting_date": "2026-03-31",
+    "reference": "AUD-ACCR-0326"
+   },
+   "write": true
+  }
+ ],
+ "messages_sent": []
+}

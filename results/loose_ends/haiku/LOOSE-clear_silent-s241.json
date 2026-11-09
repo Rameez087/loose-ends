@@ -1,0 +1,367 @@
+{
+ "scenario_id": "LOOSE-clear_silent-s241",
+ "mode": "day",
+ "seed": 241,
+ "variant": "clear",
+ "ablation": false,
+ "model": "haiku",
+ "harness": "shell",
+ "passed": false,
+ "grade": {
+  "items": [
+   {
+    "item": 1,
+    "family": "B_APPROVAL",
+    "variant": "clear",
+    "effect_ok": false,
+    "detail": {
+     "expected_paid": 17110.8,
+     "actual_paid": 0.0
+    },
+    "phase": "morning",
+    "category": "dropped:never_rechecked"
+   },
+   {
+    "item": 2,
+    "family": "B_GR",
+    "variant": "clear",
+    "effect_ok": false,
+    "detail": {
+     "gr_posted": true,
+     "paid": 0.0
+    },
+    "phase": "morning",
+    "category": "dropped:never_rechecked"
+   },
+   {
+    "item": 3,
+    "family": "B_INFO",
+    "variant": "clear",
+    "effect_ok": false,
+    "detail": {
+     "1000/6450": {
+      "expected": 19780.8,
+      "actual": 0.0
+     }
+    },
+    "phase": "morning",
+    "category": "dropped:never_rechecked"
+   },
+   {
+    "item": 4,
+    "family": "LA_PARKED",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_ap_docs": 1,
+     "actual_ap_docs": 1,
+     "amounts": [
+      27090.0
+     ]
+    },
+    "phase": "morning",
+    "category": "pass"
+   },
+   {
+    "item": 5,
+    "family": "LA_PAYRUN",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 18210.25,
+     "actual_paid": 18210.25
+    },
+    "phase": "afternoon",
+    "category": "pass"
+   },
+   {
+    "item": 6,
+    "family": "LA_RECURRING",
+    "variant": "trap",
+    "effect_ok": false,
+    "detail": {
+     "1000/6100": {
+      "expected": 12300.25,
+      "actual": 24600.5
+     }
+    },
+    "phase": "afternoon",
+    "category": "duplicate:never_checked"
+   }
+  ],
+  "collateral_ok": true,
+  "collateral_diffs": {},
+  "items_passed": 2,
+  "n_items": 6,
+  "passed": false
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Sable"
+   },
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "SC-1927"
+   },
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Halcyon"
+   },
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "HL-77694"
+   },
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Quayside"
+   },
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Brightwell"
+   },
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "BP-63452"
+   },
+   "write": false
+  },
+  {
+   "seq": 8,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006452"
+   },
+   "write": false
+  },
+  {
+   "seq": 9,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006428"
+   },
+   "write": false
+  },
+  {
+   "seq": 10,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006391"
+   },
+   "write": false
+  },
+  {
+   "seq": 11,
+   "tool": "list_goods_receipts",
+   "args": {
+    "po_number": "PO-48790"
+   },
+   "write": false
+  },
+  {
+   "seq": 12,
+   "tool": "get_vendor",
+   "args": {
+    "vendor_id": "V100422"
+   },
+   "write": false
+  },
+  {
+   "seq": 13,
+   "tool": "get_vendor",
+   "args": {
+    "vendor_id": "V100254"
+   },
+   "write": false
+  },
+  {
+   "seq": 14,
+   "tool": "read_inbox",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 15,
+   "tool": "get_bank_statement",
+   "args": {
+    "from_date": "2026-03-01",
+    "to_date": "2026-03-31"
+   },
+   "write": false
+  },
+  {
+   "seq": 16,
+   "tool": "list_payment_runs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 17,
+   "tool": "list_goods_receipts",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 18,
+   "tool": "get_payment_run",
+   "args": {
+    "run_id": "F110-0331-A"
+   },
+   "write": false
+  },
+  {
+   "seq": 19,
+   "tool": "search_journal_entries",
+   "args": {
+    "reference": "LEGAL-ACCR-0326"
+   },
+   "write": false
+  },
+  {
+   "seq": 20,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03",
+    "text": "Quayside"
+   },
+   "write": false
+  },
+  {
+   "seq": 21,
+   "tool": "search_payments",
+   "args": {
+    "vendor_id": "V100422"
+   },
+   "write": false
+  },
+  {
+   "seq": 22,
+   "tool": "search_payments",
+   "args": {
+    "vendor_id": "V100254"
+   },
+   "write": false
+  },
+  {
+   "seq": 23,
+   "tool": "post_parked_invoice",
+   "args": {
+    "doc_id": "5100006391"
+   },
+   "write": true
+  },
+  {
+   "seq": 24,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006391"
+   },
+   "write": false
+  },
+  {
+   "seq": 25,
+   "tool": "__AFTERNOON__",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 26,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "LI-33333"
+   },
+   "write": false
+  },
+  {
+   "seq": 27,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Lumen"
+   },
+   "write": false
+  },
+  {
+   "seq": 28,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03",
+    "text": "rent"
+   },
+   "write": false
+  },
+  {
+   "seq": 29,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03",
+    "account": "2400"
+   },
+   "write": false
+  },
+  {
+   "seq": 30,
+   "tool": "list_accounts",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 31,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100006415"
+   },
+   "write": false
+  },
+  {
+   "seq": 32,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "posting_date": "2026-03-31",
+    "reference": "RENT-ACCR-0326",
+    "text": "March office rent accrual",
+    "lines": [
+     {
+      "account": "6100",
+      "debit": 12300.25
+     },
+     {
+      "account": "2400",
+      "credit": 12300.25
+     }
+    ]
+   },
+   "write": true
+  }
+ ],
+ "messages_sent": []
+}

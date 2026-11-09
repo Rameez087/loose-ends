@@ -1,0 +1,574 @@
+{
+ "scenario_id": "QUEUE-s222",
+ "mode": "queue",
+ "seed": 222,
+ "ablation": false,
+ "model": "haiku",
+ "harness": "shell",
+ "passed": true,
+ "grade": {
+  "items": [
+   {
+    "item": 1,
+    "family": "LA_ICMIRROR",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "1000/4900": {
+      "expected": -40000.0,
+      "actual": -40000.0
+     },
+     "2000/6900": {
+      "expected": 40000.0,
+      "actual": 40000.0
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 2,
+    "family": "LA_BANKFILE",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 23240.0,
+     "actual_paid": 23240.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 3,
+    "family": "LB_PAID",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 8390.25,
+     "actual_paid": 8390.25
+    },
+    "category": "pass"
+   },
+   {
+    "item": 4,
+    "family": "LA_PAYRUN",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 12620.0,
+     "actual_paid": 12620.0
+    },
+    "category": "pass"
+   },
+   {
+    "item": 5,
+    "family": "LA_RECURRING",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "1000/6100": {
+      "expected": 14900.25,
+      "actual": 14900.25
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 6,
+    "family": "LA_BANKFILE",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 8910.25,
+     "actual_paid": 8910.25
+    },
+    "category": "pass"
+   },
+   {
+    "item": 7,
+    "family": "LA_PAYRUN",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 38230.25,
+     "actual_paid": 38230.25
+    },
+    "category": "pass"
+   },
+   {
+    "item": 8,
+    "family": "LA_PARKED",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_ap_docs": 1,
+     "actual_ap_docs": 1,
+     "amounts": [
+      4540.0
+     ]
+    },
+    "category": "pass"
+   },
+   {
+    "item": 9,
+    "family": "LB_TIMEOUT",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "1000/6400": {
+      "expected": 15100.5,
+      "actual": 15100.5
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 10,
+    "family": "LB_PAID",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 35300.5,
+     "actual_paid": 35300.5
+    },
+    "category": "pass"
+   }
+  ],
+  "collateral_ok": true,
+  "collateral_diffs": {},
+  "items_passed": 10,
+  "n_items": 10,
+  "passed": true
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "search_invoices",
+   "args": {
+    "status": "open"
+   },
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "search_invoices",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "list_payment_runs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "get_bank_statement",
+   "args": {
+    "from_date": "2026-03-01",
+    "to_date": "2026-03-31"
+   },
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "search_payments",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "list_bank_files",
+   "args": {
+    "date": "2026-03-31"
+   },
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "list_scheduled_jobs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 8,
+   "tool": "get_intercompany_settings",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 9,
+   "tool": "get_payment_run",
+   "args": {
+    "run_id": "F110-0331-A"
+   },
+   "write": false
+  },
+  {
+   "seq": 10,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003377"
+   },
+   "write": false
+  },
+  {
+   "seq": 11,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003394"
+   },
+   "write": false
+  },
+  {
+   "seq": 12,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003353"
+   },
+   "write": false
+  },
+  {
+   "seq": 13,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003380"
+   },
+   "write": false
+  },
+  {
+   "seq": 14,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003402"
+   },
+   "write": false
+  },
+  {
+   "seq": 15,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003414"
+   },
+   "write": false
+  },
+  {
+   "seq": 16,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003321"
+   },
+   "write": false
+  },
+  {
+   "seq": 17,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 18,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 19,
+   "tool": "search_journal_entries",
+   "args": {
+    "reference": "AUD-ACCR-0326"
+   },
+   "write": false
+  },
+  {
+   "seq": 20,
+   "tool": "search_journal_entries",
+   "args": {
+    "text": "rent"
+   },
+   "write": false
+  },
+  {
+   "seq": 21,
+   "tool": "search_journal_entries",
+   "args": {
+    "text": "IT services"
+   },
+   "write": false
+  },
+  {
+   "seq": 22,
+   "tool": "search_journal_entries",
+   "args": {
+    "text": "recharge"
+   },
+   "write": false
+  },
+  {
+   "seq": 23,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000"
+   },
+   "write": false
+  },
+  {
+   "seq": 24,
+   "tool": "search_journal_entries",
+   "args": {
+    "account": "2400",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 25,
+   "tool": "list_recurring_entries",
+   "args": {
+    "company": "1000"
+   },
+   "write": false
+  },
+  {
+   "seq": 26,
+   "tool": "list_recurring_entries",
+   "args": {
+    "company": "2000"
+   },
+   "write": false
+  },
+  {
+   "seq": 27,
+   "tool": "list_accounts",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 28,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "posting_date": "2026-03-31",
+    "reference": "ICR-0326",
+    "text": "IT services recharge Mar to GmbH",
+    "lines": [
+     {
+      "account": "1300",
+      "debit": 40000.0,
+      "partner": "2000"
+     },
+     {
+      "account": "4900",
+      "credit": 40000.0
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 29,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "2000",
+    "posting_date": "2026-03-31",
+    "reference": "ICR-0326",
+    "text": "IT services recharge Mar from Meridian Inc",
+    "lines": [
+     {
+      "account": "6900",
+      "debit": 40000.0
+     },
+     {
+      "account": "2300",
+      "credit": 40000.0,
+      "partner": "1000"
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 30,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "posting_date": "2026-03-31",
+    "reference": "AUD-ACCR-0326",
+    "text": "Audit fee accrual March",
+    "lines": [
+     {
+      "account": "6400",
+      "debit": 15100.5
+     },
+     {
+      "account": "2400",
+      "credit": 15100.5
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 31,
+   "tool": "post_parked_invoice",
+   "args": {
+    "doc_id": "5100003402"
+   },
+   "write": true
+  },
+  {
+   "seq": 32,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100205",
+    "invoice_doc_ids": [
+     "5100003377"
+    ],
+    "amount": 12620.0,
+    "note": "BP-33483 same-day wire, due 2026-03-31"
+   },
+   "write": true
+  },
+  {
+   "seq": 33,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100411",
+    "invoice_doc_ids": [
+     "5100003353"
+    ],
+    "amount": 8390.25,
+    "note": "KE-39574 same-day wire, due 2026-03-28, block released 2026-03-31"
+   },
+   "write": true
+  },
+  {
+   "seq": 34,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100253",
+    "invoice_doc_ids": [
+     "5100003380"
+    ],
+    "amount": 8910.25,
+    "note": "VT-23912 re-issue of rejected PAY-2026-04350 (BF-20260331-03 RJCT, no payment executed)"
+   },
+   "write": true
+  },
+  {
+   "seq": 35,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 36,
+   "tool": "search_journal_entries",
+   "args": {
+    "reference": "ICR-0326"
+   },
+   "write": false
+  },
+  {
+   "seq": 37,
+   "tool": "search_payments",
+   "args": {
+    "invoice_doc_id": "5100003377"
+   },
+   "write": false
+  },
+  {
+   "seq": 38,
+   "tool": "send_message",
+   "args": {
+    "to": "Mei Chen",
+    "message": "#1 Done: March IT recharge 40,000.00 USD booked on both sides (JE-1000-001231 Dr 1300 / Cr 4900 partner 2000; JE-2000-000692 Dr 6900 / Cr 2300 partner 1000, ref ICR-0326). Auto-mirror is off for 1000->2000, so both were entered manually. #5 Not posted manually: REC-RENT-1000 (14,900.25, Dr 6100 / Cr 2400) is an active recurring template due today and will post at tonight's 20:00 period-end run (JOB-0103). A manual entry would duplicate it."
+   },
+   "write": false
+  },
+  {
+   "seq": 39,
+   "tool": "send_message",
+   "args": {
+    "to": "Aisha Raza",
+    "message": "#2 NS-50038: already paid. PAY-2026-04344 (23,240.00) was sent as a manual wire on 3/30 and the bank accepted it on 3/31 (BF-20260331-02, ACCP, value date 3/31). It is not on the statement yet because the statement runs through 3/30. Did not pay again. #4 BP-33483: paid today by same-day wire PAY-2026-04353 (12,620.00, released). #9 AUD-ACCR-0326: Priya's 08:12 attempt did not post. I posted it now as JE-1000-001232 (Dr 6400 / Cr 2400, 15,100.50). Nothing from the earlier attempt exists to reverse."
+   },
+   "write": false
+  },
+  {
+   "seq": 40,
+   "tool": "send_message",
+   "args": {
+    "to": "Tom Becker",
+    "message": "#3 KE-39574 (8,390.25): paid today by same-day wire PAY-2026-04354, released to bank. The invoice had been blocked for a price variance until it was released at 10:30 today."
+   },
+   "write": false
+  },
+  {
+   "seq": 41,
+   "tool": "send_message",
+   "args": {
+    "to": "Omar Siddiqui",
+    "message": "#6 VT-23912 (8,910.25): PAY-2026-04350 failed. The bank rejected that file on 3/31 (RJCT, invalid file format, no payment executed), so the invoice was still open. I re-sent it as same-day wire PAY-2026-04355, released. #7 SC-93643 (38,230.25): already in payment run F110-0331-A, which executes today at 18:00. Not paid by a second route."
+   },
+   "write": false
+  },
+  {
+   "seq": 42,
+   "tool": "send_message",
+   "args": {
+    "to": "Sara Malik",
+    "message": "#8 CP-1181 (4,540.00, company 1000): was parked with approval complete (T.Becker, 3/31). Posted today as 5100003402, so it is now in AP and included in next week's payment run."
+   },
+   "write": false
+  },
+  {
+   "seq": 43,
+   "tool": "send_message",
+   "args": {
+    "to": "Daniel Ortiz",
+    "message": "#10 TF-61509 (35,300.50): already paid. PAY-2026-04352 settled on 3/30 in run F110-0330-A and shows on the bank statement the same day. Please tell Tidewater Freight it was paid on 3/30. No new payment was made."
+   },
+   "write": false
+  }
+ ],
+ "messages_sent": [
+  {
+   "to": "Mei Chen",
+   "message": "#1 Done: March IT recharge 40,000.00 USD booked on both sides (JE-1000-001231 Dr 1300 / Cr 4900 partner 2000; JE-2000-000692 Dr 6900 / Cr 2300 partner 1000, ref ICR-0326). Auto-mirror is off for 1000->2000, so both were entered manually. #5 Not posted manually: REC-RENT-1000 (14,900.25, Dr 6100 / Cr 2400) is an active recurring template due today and will post at tonight's 20:00 period-end run (JOB-0103). A manual entry would duplicate it.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Aisha Raza",
+   "message": "#2 NS-50038: already paid. PAY-2026-04344 (23,240.00) was sent as a manual wire on 3/30 and the bank accepted it on 3/31 (BF-20260331-02, ACCP, value date 3/31). It is not on the statement yet because the statement runs through 3/30. Did not pay again. #4 BP-33483: paid today by same-day wire PAY-2026-04353 (12,620.00, released). #9 AUD-ACCR-0326: Priya's 08:12 attempt did not post. I posted it now as JE-1000-001232 (Dr 6400 / Cr 2400, 15,100.50). Nothing from the earlier attempt exists to reverse.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Tom Becker",
+   "message": "#3 KE-39574 (8,390.25): paid today by same-day wire PAY-2026-04354, released to bank. The invoice had been blocked for a price variance until it was released at 10:30 today.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Omar Siddiqui",
+   "message": "#6 VT-23912 (8,910.25): PAY-2026-04350 failed. The bank rejected that file on 3/31 (RJCT, invalid file format, no payment executed), so the invoice was still open. I re-sent it as same-day wire PAY-2026-04355, released. #7 SC-93643 (38,230.25): already in payment run F110-0331-A, which executes today at 18:00. Not paid by a second route.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Sara Malik",
+   "message": "#8 CP-1181 (4,540.00, company 1000): was parked with approval complete (T.Becker, 3/31). Posted today as 5100003402, so it is now in AP and included in next week's payment run.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Daniel Ortiz",
+   "message": "#10 TF-61509 (35,300.50): already paid. PAY-2026-04352 settled on 3/30 in run F110-0330-A and shows on the bank statement the same day. Please tell Tidewater Freight it was paid on 3/30. No new payment was made.",
+   "at": "2026-03-31 11:20"
+  }
+ ]
+}

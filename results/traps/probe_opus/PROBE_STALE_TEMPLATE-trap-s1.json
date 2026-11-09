@@ -1,0 +1,132 @@
+{
+ "scenario_id": "PROBE_STALE_TEMPLATE-trap-s1",
+ "mode": "queue",
+ "seed": 1,
+ "ablation": false,
+ "model": "opus",
+ "harness": "shell",
+ "passed": true,
+ "grade": {
+  "items": [
+   {
+    "item": 1,
+    "family": "STALE_TEMPLATE",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "1000/6100": {
+      "expected": 9300.0,
+      "actual": 9300.0
+     }
+    },
+    "category": "pass"
+   }
+  ],
+  "collateral_ok": true,
+  "collateral_diffs": {},
+  "items_passed": 1,
+  "n_items": 1,
+  "passed": true
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03",
+    "account": "6100"
+   },
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "list_recurring_entries",
+   "args": {
+    "company": "1000"
+   },
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "list_scheduled_jobs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "get_account_balance",
+   "args": {
+    "company": "1000",
+    "account": "2400",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "text": "Harbor"
+   },
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03",
+    "account": "2400"
+   },
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "posting_date": "2026-03-31",
+    "reference": "RENT-ACCR-0326",
+    "text": "Office rent accrual March - Harbor Point lease (renewed rate)",
+    "lines": [
+     {
+      "account": "6100",
+      "debit": 9300.0
+     },
+     {
+      "account": "2400",
+      "credit": 9300.0
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 8,
+   "tool": "deactivate_recurring_entry",
+   "args": {
+    "template_id": "REC-RENT-1000",
+    "reason": "Lease renewed 1 Mar 2026 at 9,300/month; template at old 8,700 rate. March accrual posted manually - prevents duplicate posting by tonight's recurring job."
+   },
+   "write": true
+  },
+  {
+   "seq": 9,
+   "tool": "send_message",
+   "args": {
+    "to": "Daniel Ortiz",
+    "message": "March Harbor Point rent accrual posted: JE-1000-001240, 9,300.00 USD Dr 6100 / Cr 2400, company 1000, dated 2026-03-31. Note: recurring template REC-RENT-1000 was still set to the old 8,700 rate and would have auto-posted tonight at 20:00 (JOB-0103), double-booking rent. I deactivated it. Please set up a new recurring template at 9,300 from April onward (or let me know if you'd prefer otherwise) - no rent accrual will auto-post until that's done."
+   },
+   "write": false
+  }
+ ],
+ "messages_sent": [
+  {
+   "to": "Daniel Ortiz",
+   "message": "March Harbor Point rent accrual posted: JE-1000-001240, 9,300.00 USD Dr 6100 / Cr 2400, company 1000, dated 2026-03-31. Note: recurring template REC-RENT-1000 was still set to the old 8,700 rate and would have auto-posted tonight at 20:00 (JOB-0103), double-booking rent. I deactivated it. Please set up a new recurring template at 9,300 from April onward (or let me know if you'd prefer otherwise) - no rent accrual will auto-post until that's done.",
+   "at": "2026-03-31 11:20"
+  }
+ ]
+}

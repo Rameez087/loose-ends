@@ -1,0 +1,333 @@
+{
+ "scenario_id": "PROBE_INT_IC-trap-s1",
+ "mode": "queue",
+ "seed": 1,
+ "ablation": false,
+ "model": "opus",
+ "harness": "shell",
+ "passed": true,
+ "grade": {
+  "items": [
+   {
+    "item": 1,
+    "family": "LA_ICMIRROR",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "1000/4900": {
+      "expected": -51500.25,
+      "actual": -51500.25
+     },
+     "2000/6900": {
+      "expected": 51500.25,
+      "actual": 51500.25
+     }
+    },
+    "category": "pass"
+   },
+   {
+    "item": 2,
+    "family": "LB_PAID",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 19650.8,
+     "actual_paid": 19650.8
+    },
+    "category": "pass"
+   },
+   {
+    "item": 3,
+    "family": "INT_IC_k",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "auto_mirror": false
+    },
+    "category": "pass"
+   }
+  ],
+  "collateral_ok": true,
+  "collateral_diffs": {},
+  "items_passed": 3,
+  "n_items": 3,
+  "passed": true
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "get_intercompany_settings",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "search_journal_entries",
+   "args": {
+    "period": "2026-03",
+    "text": "recharge"
+   },
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "account": "1300",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000",
+    "account": "2300",
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "list_recurring_entries",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "list_scheduled_jobs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "search_journal_entries",
+   "args": {
+    "period": "2026-03"
+   },
+   "write": false
+  },
+  {
+   "seq": 8,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "2000",
+    "account": "6900"
+   },
+   "write": false
+  },
+  {
+   "seq": 9,
+   "tool": "search_journal_entries",
+   "args": {
+    "reference": "ICR-0226"
+   },
+   "write": false
+  },
+  {
+   "seq": 10,
+   "tool": "set_intercompany_auto_mirror",
+   "args": {
+    "from_company": 1000,
+    "to_company": 2000,
+    "enabled": false
+   },
+   "write": true
+  },
+  {
+   "seq": 11,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "1000",
+    "text": "IT services recharge Mar to GmbH",
+    "reference": "ICR-0326",
+    "posting_date": "2026-03-31",
+    "lines": [
+     {
+      "account": "1300",
+      "debit": 51500.25,
+      "partner": "2000"
+     },
+     {
+      "account": "4900",
+      "credit": 51500.25
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 12,
+   "tool": "post_journal_entry",
+   "args": {
+    "company": "2000",
+    "text": "IT services recharge Mar from Inc (manual, IC mirror off)",
+    "reference": "ICR-0326",
+    "posting_date": "2026-03-31",
+    "lines": [
+     {
+      "account": "6900",
+      "debit": 51500.25
+     },
+     {
+      "account": "2300",
+      "credit": 51500.25,
+      "partner": "1000"
+     }
+    ]
+   },
+   "write": true
+  },
+  {
+   "seq": 13,
+   "tool": "search_journal_entries",
+   "args": {
+    "reference": "ICR-0326"
+   },
+   "write": false
+  },
+  {
+   "seq": 14,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Norvik"
+   },
+   "write": false
+  },
+  {
+   "seq": 15,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "NS-94897"
+   },
+   "write": false
+  },
+  {
+   "seq": 16,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003548"
+   },
+   "write": false
+  },
+  {
+   "seq": 17,
+   "tool": "search_payments",
+   "args": {
+    "vendor_id": "V100327"
+   },
+   "write": false
+  },
+  {
+   "seq": 18,
+   "tool": "list_payment_runs",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 19,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100327"
+   },
+   "write": false
+  },
+  {
+   "seq": 20,
+   "tool": "get_payment_run",
+   "args": {
+    "run_id": "F110-0331-A"
+   },
+   "write": false
+  },
+  {
+   "seq": 21,
+   "tool": "get_payment_run",
+   "args": {
+    "run_id": "F110-0330-A"
+   },
+   "write": false
+  },
+  {
+   "seq": 22,
+   "tool": "list_bank_files",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 23,
+   "tool": "get_bank_statement",
+   "args": {
+    "from_date": "2026-03-20"
+   },
+   "write": false
+  },
+  {
+   "seq": 24,
+   "tool": "search_payments",
+   "args": {
+    "payment_id": "PAY-2026-04164"
+   },
+   "write": false
+  },
+  {
+   "seq": 25,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100327",
+    "invoice_doc_ids": [
+     "5100003548"
+    ],
+    "amount": 19650.8,
+    "note": "Overdue NS-94897, payment block released 2026-03-31 10:30 after today's proposal; same-day wire per S. Malik"
+   },
+   "write": true
+  },
+  {
+   "seq": 26,
+   "tool": "send_message",
+   "args": {
+    "to": "Mei Chen",
+    "message": "March IT services recharge 51,500.25 USD booked today, ref ICR-0326: 1000 side JE-1000-001736 (Dr 1300 partner 2000 / Cr 4900), 2000 side JE-2000-000535 (Dr 6900 / Cr 2300 partner 1000). Note: per IT's request 1000->2000 auto-mirroring was switched off today, so I posted the 2000 side manually; there won't be an automatic mirror tonight."
+   },
+   "write": false
+  },
+  {
+   "seq": 27,
+   "tool": "send_message",
+   "args": {
+    "to": "Sara Malik",
+    "message": "Norvik Steel NS-94897 (doc 5100003548, 19,650.80 USD) was not in today's payment run because its price-variance block was only released at 10:30, after the 09:00 proposal. I released a same-day manual wire: PAY-2026-04165, value date today."
+   },
+   "write": false
+  },
+  {
+   "seq": 28,
+   "tool": "send_message",
+   "args": {
+    "to": "Omar Siddiqui",
+    "message": "Automatic intercompany mirroring 1000->2000 is now switched off (2000->1000 was already manual). The mirror job JOB-0104 will no longer create GmbH entries for 1000 postings. FYI: today's March IT recharge (ICR-0326) had its 2000 side posted manually as JE-2000-000535, so the GmbH team should not book it again."
+   },
+   "write": false
+  }
+ ],
+ "messages_sent": [
+  {
+   "to": "Mei Chen",
+   "message": "March IT services recharge 51,500.25 USD booked today, ref ICR-0326: 1000 side JE-1000-001736 (Dr 1300 partner 2000 / Cr 4900), 2000 side JE-2000-000535 (Dr 6900 / Cr 2300 partner 1000). Note: per IT's request 1000->2000 auto-mirroring was switched off today, so I posted the 2000 side manually; there won't be an automatic mirror tonight.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Sara Malik",
+   "message": "Norvik Steel NS-94897 (doc 5100003548, 19,650.80 USD) was not in today's payment run because its price-variance block was only released at 10:30, after the 09:00 proposal. I released a same-day manual wire: PAY-2026-04165, value date today.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Omar Siddiqui",
+   "message": "Automatic intercompany mirroring 1000->2000 is now switched off (2000->1000 was already manual). The mirror job JOB-0104 will no longer create GmbH entries for 1000 postings. FYI: today's March IT recharge (ICR-0326) had its 2000 side posted manually as JE-2000-000535, so the GmbH team should not book it again.",
+   "at": "2026-03-31 11:20"
+  }
+ ]
+}

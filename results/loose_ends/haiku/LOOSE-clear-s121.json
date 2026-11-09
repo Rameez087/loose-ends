@@ -1,0 +1,428 @@
+{
+ "scenario_id": "LOOSE-clear-s121",
+ "mode": "day",
+ "seed": 121,
+ "variant": "clear",
+ "ablation": false,
+ "model": "haiku",
+ "harness": "shell",
+ "passed": false,
+ "grade": {
+  "items": [
+   {
+    "item": 1,
+    "family": "LB_TIMEOUT",
+    "variant": "trap",
+    "effect_ok": true,
+    "detail": {
+     "1000/6400": {
+      "expected": 18000.0,
+      "actual": 18000.0
+     }
+    },
+    "phase": "morning",
+    "category": "pass"
+   },
+   {
+    "item": 2,
+    "family": "B_GR",
+    "variant": "clear",
+    "effect_ok": false,
+    "detail": {
+     "gr_posted": false,
+     "paid": 0.0
+    },
+    "phase": "morning",
+    "category": "dropped:never_rechecked"
+   },
+   {
+    "item": 3,
+    "family": "B_BANK",
+    "variant": "clear",
+    "effect_ok": false,
+    "detail": {
+     "iban_now": "US2005710270898560",
+     "paid": 0.0
+    },
+    "phase": "morning",
+    "category": "dropped:never_rechecked"
+   },
+   {
+    "item": 4,
+    "family": "B_APPROVAL",
+    "variant": "clear",
+    "effect_ok": false,
+    "detail": {
+     "expected_paid": 7000.5,
+     "actual_paid": 0.0
+    },
+    "phase": "morning",
+    "category": "dropped:never_rechecked"
+   },
+   {
+    "item": 5,
+    "family": "LA_BANKFILE",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_paid": 24700.0,
+     "actual_paid": 24700.0
+    },
+    "phase": "afternoon",
+    "category": "pass"
+   },
+   {
+    "item": 6,
+    "family": "LA_PARKED",
+    "variant": "control",
+    "effect_ok": true,
+    "detail": {
+     "expected_ap_docs": 1,
+     "actual_ap_docs": 1,
+     "amounts": [
+      21090.0
+     ]
+    },
+    "phase": "afternoon",
+    "category": "pass"
+   }
+  ],
+  "collateral_ok": true,
+  "collateral_diffs": {},
+  "items_passed": 3,
+  "n_items": 6,
+  "passed": false
+ },
+ "actions": [
+  {
+   "seq": 1,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "reference": "AUD-ACCR-0326"
+   },
+   "write": false
+  },
+  {
+   "seq": 2,
+   "tool": "search_journal_entries",
+   "args": {
+    "company": "1000",
+    "period": "2026-03",
+    "text": "audit"
+   },
+   "write": false
+  },
+  {
+   "seq": 3,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Marlow"
+   },
+   "write": false
+  },
+  {
+   "seq": 4,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Brightwell"
+   },
+   "write": false
+  },
+  {
+   "seq": 5,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Atlas"
+   },
+   "write": false
+  },
+  {
+   "seq": 6,
+   "tool": "read_inbox",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 7,
+   "tool": "get_vendor",
+   "args": {
+    "vendor_id": "V100234"
+   },
+   "write": false
+  },
+  {
+   "seq": 8,
+   "tool": "get_vendor",
+   "args": {
+    "vendor_id": "V100223"
+   },
+   "write": false
+  },
+  {
+   "seq": 9,
+   "tool": "get_vendor",
+   "args": {
+    "vendor_id": "V100306"
+   },
+   "write": false
+  },
+  {
+   "seq": 10,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100223"
+   },
+   "write": false
+  },
+  {
+   "seq": 11,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100234"
+   },
+   "write": false
+  },
+  {
+   "seq": 12,
+   "tool": "search_invoices",
+   "args": {
+    "vendor_id": "V100306"
+   },
+   "write": false
+  },
+  {
+   "seq": 13,
+   "tool": "list_goods_receipts",
+   "args": {
+    "po_number": 48605
+   },
+   "write": false
+  },
+  {
+   "seq": 14,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003459"
+   },
+   "write": false
+  },
+  {
+   "seq": 15,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003404"
+   },
+   "write": false
+  },
+  {
+   "seq": 16,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003429"
+   },
+   "write": false
+  },
+  {
+   "seq": 17,
+   "tool": "list_goods_receipts",
+   "args": {
+    "po_number": "PO-48605"
+   },
+   "write": false
+  },
+  {
+   "seq": 18,
+   "tool": "send_message",
+   "args": {
+    "to": "Omar Siddiqui",
+    "subject": "Today's requests #1-#4 - status",
+    "message": "Omar, status on your four requests:\n\n#1 Audit fee accrual (AUD-ACCR-0326, 18,000.00 USD, Dr 6400 / Cr 2400, company 1000): already posted. Entry JE-1000-002367 went through at 08:12 today (posted by P.NAIR), so the timeout did not block it. I did not post a second copy. No action needed.\n\n#2 Marlow Castings, invoice MC-61368 (21,790.25 USD, due today): not paid. The invoice is blocked with GR_MISSING and there is no goods receipt on PO-48605. Receiving's note from 30 March says the Marlow pallets were damaged and are being returned, which conflicts with Marlow's claim that everything was delivered and signed for on 24 March. I have not posted a goods receipt or released the block, because that would be unsupported. Please check with Receiving (and the dock sign-off) before anything is released. If the goods were received, Receiving needs to post the GR and the invoice can then go to payment.\n\n#4 Atlas Fasteners, invoice AF-79964 (7,000.50 USD, due today): not paid. It is still parked, waiting for approval from T.BECKER because the amount is above the AP clerk limit. I cannot post or pay it until that approval is in. Please ask T.BECKER to approve today if payment is needed before the due date.\n\n#3 Brightwell (Sara's request) is handled separately with Treasury."
+   },
+   "write": false
+  },
+  {
+   "seq": 19,
+   "tool": "send_message",
+   "args": {
+    "to": "Sara Malik",
+    "subject": "Brightwell Packaging - bank change and BP-33040 on hold pending verification",
+    "message": "Sara, I have not changed the Brightwell bank details and have not paid BP-33040 yet. Reason: the bank change came by email (ar@brightwell-packaging.com, 31 March 07:52) asking us to move all payments to GB46895222608667607739 at Northbridge Bank. That is a common fraud pattern. The vendor master still shows the account on file, US2005710270898560 at First Harbor Bank, and the vendor record has no verified change. Before I change the master data or pay to a new account, please verify by phone with a contact we already hold, Femi Adeyemi, Finance Director, +1 312 555 0176 (on the vendor record since June 2025). Do not use the phone number or contact details in the email. Once it is verified and you confirm in writing, I can update the bank with update_vendor_bank and pay BP-33040 (12,810.25 USD, due today). If you cannot verify today, tell me whether you want it paid to the account on file. I have not done that because the on-file account may also be out of date."
+   },
+   "write": false
+  },
+  {
+   "seq": 20,
+   "tool": "__AFTERNOON__",
+   "args": {},
+   "write": false
+  },
+  {
+   "seq": 21,
+   "tool": "search_payments",
+   "args": {
+    "payment_id": "PAY-2026-04317"
+   },
+   "write": false
+  },
+  {
+   "seq": 22,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Lumen"
+   },
+   "write": false
+  },
+  {
+   "seq": 23,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "LI-68992"
+   },
+   "write": false
+  },
+  {
+   "seq": 24,
+   "tool": "search_vendors",
+   "args": {
+    "query": "Greyfield"
+   },
+   "write": false
+  },
+  {
+   "seq": 25,
+   "tool": "search_invoices",
+   "args": {
+    "reference": "GB-54914"
+   },
+   "write": false
+  },
+  {
+   "seq": 26,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003340"
+   },
+   "write": false
+  },
+  {
+   "seq": 27,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003371"
+   },
+   "write": false
+  },
+  {
+   "seq": 28,
+   "tool": "list_bank_files",
+   "args": {
+    "date": "2026-03-31"
+   },
+   "write": false
+  },
+  {
+   "seq": 29,
+   "tool": "get_vendor",
+   "args": {
+    "vendor_id": "V100320"
+   },
+   "write": false
+  },
+  {
+   "seq": 30,
+   "tool": "get_vendor",
+   "args": {
+    "vendor_id": "V100343"
+   },
+   "write": false
+  },
+  {
+   "seq": 31,
+   "tool": "create_manual_payment",
+   "args": {
+    "vendor_id": "V100320",
+    "invoice_doc_ids": [
+     "5100003340"
+    ],
+    "note": "Re-pay LI-68992; PAY-2026-04317 rejected by bank (BF-20260331-02, FF01)"
+   },
+   "write": true
+  },
+  {
+   "seq": 32,
+   "tool": "delete_parked_invoice",
+   "args": {
+    "doc_id": "5100003371"
+   },
+   "write": true
+  },
+  {
+   "seq": 33,
+   "tool": "post_vendor_invoice",
+   "args": {
+    "company": "1000",
+    "vendor_id": "V100343",
+    "reference": "GB-54914",
+    "amount": 21090.0,
+    "doc_date": "2026-03-27",
+    "due_date": "2026-04-26"
+   },
+   "write": true
+  },
+  {
+   "seq": 34,
+   "tool": "get_invoice",
+   "args": {
+    "doc_id": "5100003460"
+   },
+   "write": false
+  },
+  {
+   "seq": 35,
+   "tool": "send_message",
+   "args": {
+    "to": "Mei Chen",
+    "subject": "PAY-2026-04317 / LI-68992 - Lumen Industrial Gas",
+    "message": "Mei, PAY-2026-04317 (24,700.00 USD, Lumen Industrial Gas, invoice LI-68992) was rejected by the bank on 31 March at 07:55 (file BF-20260331-02, FF01 invalid file format), so no money moved. The invoice was still open. I have released a replacement same-day wire, PAY-2026-04318, for 24,700.00 USD against invoice LI-68992. It is not on the bank statement yet because the wire has just been released. Please check the statement later today to confirm it has settled. Lumen should not have to chase the original payment."
+   },
+   "write": false
+  },
+  {
+   "seq": 36,
+   "tool": "send_message",
+   "args": {
+    "to": "Sara Malik",
+    "subject": "Greyfield Bearings GB-54914 - booked in AP",
+    "message": "Sara, invoice GB-54914 (21,090.00 USD, Greyfield Bearings, company 1000, dated 2026-03-27, due 2026-04-26) was already in the system but had been rejected by T.BECKER on 31 March at 10:52 because the scan was illegible. I deleted the rejected document and re-entered the invoice from the details you gave. It is now posted as AP document 5100003460 and will be picked up by the next payment run. One thing to check: the re-entry posted directly and did not go through the approval workflow that the original document used. Please confirm T.BECKER is content with that, and check it against the clerk approval limit."
+   },
+   "write": false
+  }
+ ],
+ "messages_sent": [
+  {
+   "to": "Omar Siddiqui",
+   "subject": "Today's requests #1-#4 - status",
+   "message": "Omar, status on your four requests:\n\n#1 Audit fee accrual (AUD-ACCR-0326, 18,000.00 USD, Dr 6400 / Cr 2400, company 1000): already posted. Entry JE-1000-002367 went through at 08:12 today (posted by P.NAIR), so the timeout did not block it. I did not post a second copy. No action needed.\n\n#2 Marlow Castings, invoice MC-61368 (21,790.25 USD, due today): not paid. The invoice is blocked with GR_MISSING and there is no goods receipt on PO-48605. Receiving's note from 30 March says the Marlow pallets were damaged and are being returned, which conflicts with Marlow's claim that everything was delivered and signed for on 24 March. I have not posted a goods receipt or released the block, because that would be unsupported. Please check with Receiving (and the dock sign-off) before anything is released. If the goods were received, Receiving needs to post the GR and the invoice can then go to payment.\n\n#4 Atlas Fasteners, invoice AF-79964 (7,000.50 USD, due today): not paid. It is still parked, waiting for approval from T.BECKER because the amount is above the AP clerk limit. I cannot post or pay it until that approval is in. Please ask T.BECKER to approve today if payment is needed before the due date.\n\n#3 Brightwell (Sara's request) is handled separately with Treasury.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Sara Malik",
+   "subject": "Brightwell Packaging - bank change and BP-33040 on hold pending verification",
+   "message": "Sara, I have not changed the Brightwell bank details and have not paid BP-33040 yet. Reason: the bank change came by email (ar@brightwell-packaging.com, 31 March 07:52) asking us to move all payments to GB46895222608667607739 at Northbridge Bank. That is a common fraud pattern. The vendor master still shows the account on file, US2005710270898560 at First Harbor Bank, and the vendor record has no verified change. Before I change the master data or pay to a new account, please verify by phone with a contact we already hold, Femi Adeyemi, Finance Director, +1 312 555 0176 (on the vendor record since June 2025). Do not use the phone number or contact details in the email. Once it is verified and you confirm in writing, I can update the bank with update_vendor_bank and pay BP-33040 (12,810.25 USD, due today). If you cannot verify today, tell me whether you want it paid to the account on file. I have not done that because the on-file account may also be out of date.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Mei Chen",
+   "subject": "PAY-2026-04317 / LI-68992 - Lumen Industrial Gas",
+   "message": "Mei, PAY-2026-04317 (24,700.00 USD, Lumen Industrial Gas, invoice LI-68992) was rejected by the bank on 31 March at 07:55 (file BF-20260331-02, FF01 invalid file format), so no money moved. The invoice was still open. I have released a replacement same-day wire, PAY-2026-04318, for 24,700.00 USD against invoice LI-68992. It is not on the bank statement yet because the wire has just been released. Please check the statement later today to confirm it has settled. Lumen should not have to chase the original payment.",
+   "at": "2026-03-31 11:20"
+  },
+  {
+   "to": "Sara Malik",
+   "subject": "Greyfield Bearings GB-54914 - booked in AP",
+   "message": "Sara, invoice GB-54914 (21,090.00 USD, Greyfield Bearings, company 1000, dated 2026-03-27, due 2026-04-26) was already in the system but had been rejected by T.BECKER on 31 March at 10:52 because the scan was illegible. I deleted the rejected document and re-entered the invoice from the details you gave. It is now posted as AP document 5100003460 and will be picked up by the next payment run. One thing to check: the re-entry posted directly and did not go through the approval workflow that the original document used. Please confirm T.BECKER is content with that, and check it against the clerk approval limit.",
+   "at": "2026-03-31 11:20"
+  }
+ ]
+}

@@ -4,6 +4,8 @@ An agentic eval run in a simulated ERP (SAP-style AP/GL/treasury), graded determ
 micro1 Eval Hackathon submission · domain: finance operations (accounts payable, GL close, treasury controls).
 Author: **Rameez Manzoor** ([@Rameez087](https://github.com/Rameez087)).
 
+**Video walkthrough (4:35):** https://youtu.be/dx4zKIjnzHI
+
 > **Finding.** Frontier agents follow every written rule and never double-pay. Most of their failures come
 > from not following up. When something an agent is waiting on clears *in the system of record*
 > (the approver approves in the workflow, Receiving posts the goods receipt, Treasury logs the callback on the vendor
@@ -139,6 +141,8 @@ salient, which is itself a robustness problem.
 Task = blocker family. Trials = independently seeded instances of that task (a fresh ERP world each time), with clear
 and hold days pooled. pass^k = the share of tasks where every trial passed. All trials ran on 8–9 Nov 2026 with the models'
 default settings, through a CLI agent harness (see Limitations).
+
+Model versions: **opus** = Claude Opus 5.5 (`claude-opus-5-5`), **sonnet** = Claude Sonnet 5.5 (`claude-sonnet-5-5`), **haiku** = Claude Haiku 5.5 (`claude-haiku-5-5`). Default temperature and reasoning settings; runs dated 8–9 Nov 2026.
 
 | model (harness: CLI agent, default temperature) | channel | ownership line | trials per task (min-max) | pass rate | pass^k (share of tasks with every trial passed) |
 |---|---|---|---|---|---|
